@@ -7,9 +7,10 @@
 <meta name="description" content="">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://kedl.github.io//favicon.ico?v=1561354984114">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://kedl.github.io//favicon.ico?v=1561354679842">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://kedl.github.io//styles/main.css">
 
@@ -20,58 +21,107 @@
 
   
 
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
-
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://kedl.github.io/">
-        <img src="https://kedl.github.io//images/avatar.png?v=1561354679842" class="site-logo">
-        <h1 class="site-title">Danny</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
-      
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://kedl.github.io/">Danny</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
         
-          <a href="/" class="site-nav">
-            首页
-          </a>
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
         
-      
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
         
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
         
-      
+          <li>
+            
+              <a href="/types" class="menu">
+                分类
+              </a>
+            
+          </li>
         
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-        
-          <a href="/types" class="site-nav">
-            分类
-          </a>
-        
-      
+      </ul>
     </div>
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>What the difference between Selenium1 and Selenium2</h1>
+            <p class="article-meta">
+              2019-06-24
+              
+            </p>
+            
+            <div class="post-content">
+              <p>selenium 1.0包括：selenium IDE、selenium Grid、selenium RC三部分</p>
+<blockquote>
+<p>selenium IDE：firefox的一个插件，可以录制和回放脚本。
+selenium Grid：用于实现分布式测试。利用Grid，可以很方便地同时在多台机器上和异构环境中并行运行多个测试事例。
+selenium RC：selenium 的核心部分，可以实现利用selenium的代理服务器来实现访问浏览器实现自动化测试。</p>
+</blockquote>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://kedl.github.io//images/avatar.png?v=1561354984114" class="no-responsive avatar">
+    <div class="text-muted"></div>
     <div class="social-container">
       
         
@@ -85,46 +135,53 @@
         
       
     </div>
-    <div class="site-description">
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://kedl.github.io//post/wen-zhang-2">文章2</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://kedl.github.io//post/wen-zhang-1">文章1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://kedl.github.io//post/what-the-difference-between-selenium1-and-selenium2">What the difference between Selenium1 and Selenium2</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://kedl.github.io//tag/ihzLla1MV" class="badge secondary">
+          Python
+        </a>
       
     </div>
-    <div class="site-footer">
-       | <a class="rss" href="https://kedl.github.io//atom.xml" target="_blank">RSS</a>
-    </div>
+  </div>
+  <div class="paper">
+     | <a class="rss" href="https://kedl.github.io//atom.xml" target="_blank">RSS</a>
   </div>
 </div>
 
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">What the difference between Selenium1 and Selenium2</h2>
-            <div class="post-date">2019-06-24</div>
-            
-            <div class="post-content">
-              <p>selenium 1.0包括：selenium IDE、selenium Grid、selenium RC三部分</p>
-<blockquote>
-<p>selenium IDE：firefox的一个插件，可以录制和回放脚本。
-selenium Grid：用于实现分布式测试。利用Grid，可以很方便地同时在多台机器上和异构环境中并行运行多个测试事例。
-selenium RC：selenium 的核心部分，可以实现利用selenium的代理服务器来实现访问浏览器实现自动化测试。</p>
-</blockquote>
-
-            </div>
-            
-            
-
-            
-              
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
-
-              
-            
-
-          </div>
-
-        </div>
-      </div>
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -134,13 +191,6 @@ selenium RC：selenium 的核心部分，可以实现利用selenium的代理服�
 AOS.init();
 
 hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
 
 </script>
 
