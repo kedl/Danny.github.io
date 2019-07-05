@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kedl.github.io/</id>
     <title>Danny</title>
-    <updated>2019-07-05T03:40:55.130Z</updated>
+    <updated>2019-07-05T04:52:26.912Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kedl.github.io/"/>
     <link rel="self" href="https://kedl.github.io//atom.xml"/>
@@ -266,17 +266,17 @@
 <ul>
 <li>先查看sql_mode:</li>
 </ul>
-<pre><code class="language-mysql">select @@global.sql_mode;
+<pre><code class="language-sql">select @@global.sql_mode;
 </code></pre>
 <ul>
 <li>去掉ONLY_FULL_GROUP_BY，重新设置值:</li>
 </ul>
-<pre><code class="language-mysql">set @@global.sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+<pre><code class="language-sql">set @@global.sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 </code></pre>
 <blockquote>
 <p>上面是改变了全局sql_mode，对于新建的数据库有效。对于已存在的数据库，则需要在对应的数据下执行：</p>
 </blockquote>
-<pre><code class="language-mysql">set sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+<pre><code class="language-sql">set sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 </code></pre>
 ]]></content>
     </entry>

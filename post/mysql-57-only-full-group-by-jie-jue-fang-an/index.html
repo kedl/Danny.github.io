@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://kedl.github.io//favicon.ico?v=1562298051934">
+<link rel="shortcut icon" href="https://kedl.github.io//favicon.ico?v=1562302333821">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://kedl.github.io//styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://kedl.github.io/">
-        <img src="https://kedl.github.io//images/avatar.png?v=1562298051934" class="site-logo">
+        <img src="https://kedl.github.io//images/avatar.png?v=1562302333821" class="site-logo">
         <h1 class="site-title">Danny</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -107,17 +107,17 @@
 <ul>
 <li>先查看sql_mode:</li>
 </ul>
-<pre><code class="language-mysql">select @@global.sql_mode;
+<pre><code class="language-sql">select @@global.sql_mode;
 </code></pre>
 <ul>
 <li>去掉ONLY_FULL_GROUP_BY，重新设置值:</li>
 </ul>
-<pre><code class="language-mysql">set @@global.sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+<pre><code class="language-sql">set @@global.sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 </code></pre>
 <blockquote>
 <p>上面是改变了全局sql_mode，对于新建的数据库有效。对于已存在的数据库，则需要在对应的数据下执行：</p>
 </blockquote>
-<pre><code class="language-mysql">set sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+<pre><code class="language-sql">set sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 </code></pre>
 
             </div>
