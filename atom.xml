@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kedl.github.io/</id>
     <title>Danny</title>
-    <updated>2019-07-05T02:49:33.412Z</updated>
+    <updated>2019-07-05T02:57:05.080Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kedl.github.io/"/>
     <link rel="self" href="https://kedl.github.io//atom.xml"/>
@@ -10,6 +10,31 @@
     <logo>https://kedl.github.io//images/avatar.png</logo>
     <icon>https://kedl.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Danny</rights>
+    <entry>
+        <title type="html"><![CDATA[MySQL 5.7 only full group by解决方案]]></title>
+        <id>https://kedl.github.io//post/mysql-57-only-full-group-by-jie-jue-fang-an</id>
+        <link href="https://kedl.github.io//post/mysql-57-only-full-group-by-jie-jue-fang-an">
+        </link>
+        <updated>2019-07-05T02:52:23.000Z</updated>
+        <content type="html"><![CDATA[<p>因为MySQL 5.7版本的变化，在执行group by 时，如果后面的列名没有出现在select中则会出现该错误。
+解决办法：</p>
+<ul>
+<li>先查看sql_mode:</li>
+</ul>
+<pre><code class="language-mysql">select @@global.sql_mode;
+</code></pre>
+<ul>
+<li>去掉ONLY_FULL_GROUP_BY，重新设置值:</li>
+</ul>
+<pre><code class="language-mysql">set @@global.sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+</code></pre>
+<blockquote>
+<p>上面是改变了全局sql_mode，对于新建的数据库有效。对于已存在的数据库，则需要在对应的数据下执行：</p>
+</blockquote>
+<pre><code class="language-mysql">set sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Selenium1和Selenium2的区别]]></title>
         <id>https://kedl.github.io//post/what-the-difference-between-selenium1-and-selenium2</id>
