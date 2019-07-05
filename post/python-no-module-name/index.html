@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | Danny</title>
+<title>Python 解决import时找不到module问题 | Danny</title>
 <meta name="description" content="爱测试爱Danny">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,6 +13,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://kedl.github.io//styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -85,60 +91,56 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">Python 解决import时找不到module问题</h2>
+            <div class="post-date">2019-07-05</div>
+            
+            <div class="post-content">
+              <p>A(主要针对同目录):</p>
+<blockquote>
+<p>在导入之前加入一下代码：</p>
+</blockquote>
+<pre><code class="language-python">import sys, os
+sys.path.append(os.getcwd())
+</code></pre>
+<p>B(针对跨module):</p>
+<blockquote>
+<p>在导入之前加入一下代码：</p>
+</blockquote>
+<pre><code class="language-python">import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+</code></pre>
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
+              <div class="tag-container">
+                
+                  <a href="https://kedl.github.io//tag/ihzLla1MV" class="tag">
+                    Python
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://kedl.github.io//post/mysql-shi-wu-ge-chi">
+                  <h3 class="post-title">
+                    事务隔离
+                  </h3>
+                </a>
+              </div>
+            
+
+            
               
-                
-                  <article class="post">
-                    <a href="https://kedl.github.io//post/python-no-module-name">
-                      <h2 class="post-title">
-                        Python 解决import时找不到module问题
-                      </h2>
-                    </a>
-                  </article>
-                
+                <div id="gitalk-container" data-aos="fade-in"></div>
               
-                
-                  <article class="post">
-                    <a href="https://kedl.github.io//post/mysql-shi-wu-ge-chi">
-                      <h2 class="post-title">
-                        事务隔离
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://kedl.github.io//post/mysql-57-only-full-group-by-jie-jue-fang-an">
-                      <h2 class="post-title">
-                        MySQL 5.7 only full group by解决方案
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://kedl.github.io//post/what-the-difference-between-selenium1-and-selenium2">
-                      <h2 class="post-title">
-                        Selenium1和Selenium2的区别
-                      </h2>
-                    </a>
-                  </article>
-                
+
               
             
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>
@@ -160,6 +162,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8c2a8cc08ae8eca3f499',
+        clientSecret: '015e33436cd70fd642cda7b2d3a6100790f67f5c',
+        repo: 'kedl.github.io',
+        owner: 'kedl',
+        admin: ['kedl'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

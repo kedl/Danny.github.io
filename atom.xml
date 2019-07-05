@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kedl.github.io/</id>
     <title>Danny</title>
-    <updated>2019-07-05T05:09:40.232Z</updated>
+    <updated>2019-07-05T06:27:03.695Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kedl.github.io/"/>
     <link rel="self" href="https://kedl.github.io//atom.xml"/>
@@ -10,6 +10,28 @@
     <logo>https://kedl.github.io//images/avatar.png</logo>
     <icon>https://kedl.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Danny</rights>
+    <entry>
+        <title type="html"><![CDATA[Python 解决import时找不到module问题]]></title>
+        <id>https://kedl.github.io//post/python-no-module-name</id>
+        <link href="https://kedl.github.io//post/python-no-module-name">
+        </link>
+        <updated>2019-07-05T06:23:41.000Z</updated>
+        <content type="html"><![CDATA[<p>A(主要针对同目录):</p>
+<blockquote>
+<p>在导入之前加入一下代码：</p>
+</blockquote>
+<pre><code class="language-python">import sys, os
+sys.path.append(os.getcwd())
+</code></pre>
+<p>B(针对跨module):</p>
+<blockquote>
+<p>在导入之前加入一下代码：</p>
+</blockquote>
+<pre><code class="language-python">import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[事务隔离]]></title>
         <id>https://kedl.github.io//post/mysql-shi-wu-ge-chi</id>
