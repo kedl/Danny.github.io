@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>MySQL 5.7 only full group by解决方案 | Danny</title>
+<title>about | Danny</title>
 <meta name="description" content="爱测试爱Danny">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -98,47 +98,14 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">MySQL 5.7 only full group by解决方案</h2>
+            <h2 class="post-title">about</h2>
             <div class="post-date">2019-07-05</div>
             
             <div class="post-content">
-              <p>因为MySQL 5.7版本的变化，在执行group by 时，如果后面的列名没有出现在select中则会出现该错误。
-解决办法：</p>
-<ul>
-<li>先查看sql_mode:</li>
-</ul>
-<pre><code class="language-sql">select @@global.sql_mode;
-</code></pre>
-<ul>
-<li>去掉ONLY_FULL_GROUP_BY，重新设置值:</li>
-</ul>
-<pre><code class="language-sql">set @@global.sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-</code></pre>
-<blockquote>
-<p>上面是改变了全局sql_mode，对于新建的数据库有效。对于已存在的数据库，则需要在对应的数据下执行：</p>
-</blockquote>
-<pre><code class="language-sql">set sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-</code></pre>
+              <p>Test about page.</p>
 
             </div>
             
-              <div class="tag-container">
-                
-                  <a href="https://kedl.github.io//tag/jlTs6evIR" class="tag">
-                    MySQL
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://kedl.github.io//post/what-the-difference-between-selenium1-and-selenium2">
-                  <h3 class="post-title">
-                    Selenium1和Selenium2的区别
-                  </h3>
-                </a>
-              </div>
             
 
             
