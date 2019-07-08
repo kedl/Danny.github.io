@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kedl.github.io/</id>
     <title>Danny</title>
-    <updated>2019-07-08T06:53:25.567Z</updated>
+    <updated>2019-07-08T06:59:14.739Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kedl.github.io/"/>
     <link rel="self" href="https://kedl.github.io//atom.xml"/>
@@ -24,7 +24,12 @@
 new_list.sort(key=old_list.index)
 </code></pre>
 <p>或者:</p>
-<pre><code class="language-python">[new_list.append(i) for i in old_list if not i in new_list]
+<pre><code class="language-python">old_list = ['b','c','d','b','c','a','a']
+new_list = []
+for i in c:
+    if i not in d:
+		    d.append(i)
+print(new_list)
 </code></pre>
 ]]></content>
     </entry>
