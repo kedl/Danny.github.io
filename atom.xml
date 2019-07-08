@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kedl.github.io/</id>
     <title>Danny</title>
-    <updated>2019-07-05T06:53:34.679Z</updated>
+    <updated>2019-07-08T06:27:58.464Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kedl.github.io/"/>
     <link rel="self" href="https://kedl.github.io//atom.xml"/>
@@ -10,6 +10,47 @@
     <logo>https://kedl.github.io//images/avatar.png</logo>
     <icon>https://kedl.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Danny</rights>
+    <entry>
+        <title type="html"><![CDATA[Python List 并集、差集、交集]]></title>
+        <id>https://kedl.github.io//post/python-list-bing-ji-chai-ji-jiao-ji</id>
+        <link href="https://kedl.github.io//post/python-list-bing-ji-chai-ji-jiao-ji">
+        </link>
+        <updated>2019-07-08T06:20:42.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>差集</li>
+</ul>
+<pre><code class="language-python"># 方法一
+result_list = [i for i in a if i not in b] + [i for i in b if i not in a]
+
+# 方法二
+result_list = list(set(a)^set(b))
+</code></pre>
+<ul>
+<li>并集</li>
+</ul>
+<pre><code class="language-python"># 方法一
+result_list = list(set(a_list).union(set(b_list)))
+
+#方法二
+result_list = list(set(a) | set(b))
+</code></pre>
+<ul>
+<li>交集</li>
+</ul>
+<pre><code class="language-python"># 方法一
+result_list = list((set(a_list).union(set(b_list)))^(set(a_list)^set(b_list)))
+
+# 方法二
+result_list = list(set(a).intersection(b))
+
+# 方法三
+result_list = list(set(a) &amp; set(b))
+
+# 方法四
+result_list = [x for x in b if x in set(a)]
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Python 解决import时找不到module问题]]></title>
         <id>https://kedl.github.io//post/python-no-module-name</id>
