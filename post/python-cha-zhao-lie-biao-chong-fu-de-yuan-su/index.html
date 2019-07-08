@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Python 解决import时找不到module问题 | Danny</title>
+<title>Python查找列表重复的元素 | Danny</title>
 <meta name="description" content="爱测试爱Danny">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -79,46 +79,27 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>Python 解决import时找不到module问题</h1>
+            <h1>Python查找列表重复的元素</h1>
             <p class="article-meta">
-              2019-07-05
-              
-                <a href="https://kedl.github.io//tag/ihzLla1MV" class="badge success">
-                  Python
-                </a>
+              2019-07-08
               
             </p>
             
             <div class="post-content">
-              <p>A(主要针对同目录):</p>
-<blockquote>
-<p>在导入之前加入以下代码：</p>
-</blockquote>
-<pre><code class="language-python">import sys, os
-sys.path.append(os.getcwd())
+              <p>方法一:</p>
+<pre><code class="language-python">old_list = [1, 2, 3, 2, 1, 5, 6, 5, 5, 5]
+duplicated = set()
+for i in range(0, len(old_list)):
+    if old_list[i] in old_list[i + 1:]:
+        duplicated.add(old_list[i])
+print(duplicated)
 </code></pre>
-<p>B(针对跨module):</p>
-<blockquote>
-<p>在导入之前加入以下代码：</p>
-</blockquote>
-<pre><code class="language-python">import sys, os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+<p>方法二:
+利用内置的collections.</p>
+<pre><code class="language-python">from collections import Counter
+a = [1, 2, 3, 2, 1, 5, 6, 5, 5, 5]
+print([item for item, count in Counter(a).items() if count &gt; 1])
 </code></pre>
-<p>以上方式均是通过sys.path将我们自定义的module加入到Python的运行环境，若要检查加入是否成功，则可通过以下方式进行查看验证:</p>
-<pre><code class="language-python">import sys
-print(sys.path)
-</code></pre>
-<p>另一种方式则是通过设置环境变量值解决该问题：</p>
-<pre><code class="language-sh">$export PYTHONPATH=$PYTHONPATH:/module path
-</code></pre>
-<p>综上所述，该问题的出现均是python解释器在运行过程中，模块不在搜索路径里，从而导致路径搜索失败！Python的路径搜索过程如下：</p>
-<ul>
-<li>程序的主目录</li>
-<li>PTYHONPATH目录（如果已经进行了设置）</li>
-<li>标准连接库目录（一般在/usr/local/lib/python/）</li>
-<li>任何的.pth文件的内容（如果存在的话）.新功能，允许用户把有效果的目录添加到模块搜索路径中去.pth后缀的文本文件中一行一行的地列出目录。</li>
-</ul>
-<p>这四个组建组合起来就变成了sys.path。</p>
 
             </div>
           </article>
@@ -129,9 +110,9 @@ print(sys.path)
               <div class="next">
                 下一篇
               </div>
-              <a href="https://kedl.github.io//post/mysql-shi-wu-ge-chi">
+              <a href="https://kedl.github.io//post/python-lie-biao-qu-chong">
                 <h3 class="post-title">
-                  事务隔离
+                  Python列表去重
                 </h3>
               </a>
             </div>
@@ -224,11 +205,11 @@ print(sys.path)
     </div>
     <div class="row">
       
-        <a href="https://kedl.github.io//tag/ihzLla1MV" class="badge success">
+        <a href="https://kedl.github.io//tag/ihzLla1MV" class="badge secondary">
           Python
         </a>
       
-        <a href="https://kedl.github.io//tag/jlTs6evIR" class="badge secondary">
+        <a href="https://kedl.github.io//tag/jlTs6evIR" class="badge warning">
           MySQL
         </a>
       
