@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | Danny</title>
+<title>敏捷测试四象限 | Danny</title>
 <meta name="description" content="爱测试爱Danny">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="https://kedl.github.io//styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
@@ -23,6 +29,7 @@
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://kedl.github.io/">Danny</a></h3>
@@ -71,28 +78,70 @@
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="row tags-container">
+          <article class="article">
+            <h1>敏捷测试四象限</h1>
+            <p class="article-meta">
+              2019-07-12
+              
+                <a href="https://kedl.github.io//tag/_HepvsHsw" class="badge success">
+                  Test design
+                </a>
+              
+            </p>
             
-              <a href="https://kedl.github.io//tag/_HepvsHsw" class="badge warning">
-                Test design
-              </a>
-            
-              <a href="https://kedl.github.io//tag/ihzLla1MV" class="badge ">
-                Python
-              </a>
-            
-              <a href="https://kedl.github.io//tag/jlTs6evIR" class="badge warning">
-                MySQL
-              </a>
-            
-              <a href="https://kedl.github.io//tag/bER-u8Nl2" class="badge success">
-                Selenium
-              </a>
-            
-          </div>
+            <div class="post-content">
+              <p><img src="https://kedl.github.io//post-images/1562918338941.jpg" alt=""></p>
+<ul>
+<li>支持团队的面向技术测试
+<blockquote>
+<p>单元测试和组件测试通过帮助程序员准确理解代码需要做什么及提供正确设计的指导而保证质量。例如: TDD</p>
+</blockquote>
+</li>
+<li>支持团队的面向业务测试
+<blockquote>
+<p>定义和验证外部质量，同时帮助我们了解何时完成。例如：ATDD、BDD</p>
+</blockquote>
+</li>
+<li>评价产品的面向业务测试
+<blockquote>
+<p>测试人员或业务用户通过实际接触软件，从业务整体的角度去评判产品。例如：探索性测试</p>
+</blockquote>
+</li>
+<li>利用面向技术的测试评价产品
+<blockquote>
+<p>从技术角度来评价用户不一定能关注到的那些非功能性需求，帮助交付高质量的产品。例如：性能测试、安全测试</p>
+</blockquote>
+</li>
+</ul>
+
+            </div>
+          </article>
         </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://kedl.github.io//post/python-cha-zhao-lie-biao-chong-fu-de-yuan-su">
+                <h3 class="post-title">
+                  Python查找列表重复的元素
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
       </div>
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://kedl.github.io//images/avatar.png?v=1562918850760" class="no-responsive avatar">
@@ -175,19 +224,19 @@
     </div>
     <div class="row">
       
-        <a href="https://kedl.github.io//tag/_HepvsHsw" class="badge secondary">
+        <a href="https://kedl.github.io//tag/_HepvsHsw" class="badge ">
           Test design
         </a>
       
-        <a href="https://kedl.github.io//tag/ihzLla1MV" class="badge secondary">
+        <a href="https://kedl.github.io//tag/ihzLla1MV" class="badge warning">
           Python
         </a>
       
-        <a href="https://kedl.github.io//tag/jlTs6evIR" class="badge ">
+        <a href="https://kedl.github.io//tag/jlTs6evIR" class="badge secondary">
           MySQL
         </a>
       
-        <a href="https://kedl.github.io//tag/bER-u8Nl2" class="badge success">
+        <a href="https://kedl.github.io//tag/bER-u8Nl2" class="badge secondary">
           Selenium
         </a>
       
@@ -197,7 +246,8 @@
     By Danny | <a class="rss" href="https://kedl.github.io//atom.xml" target="_blank">RSS</a>
   </div>
 </div>
-  
+
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -209,6 +259,29 @@ AOS.init();
 hljs.initHighlightingOnLoad()
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8c2a8cc08ae8eca3f499',
+        clientSecret: '015e33436cd70fd642cda7b2d3a6100790f67f5c',
+        repo: 'kedl.github.io',
+        owner: 'kedl',
+        admin: ['kedl'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

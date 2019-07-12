@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kedl.github.io/</id>
     <title>Danny</title>
-    <updated>2019-07-08T07:42:52.434Z</updated>
+    <updated>2019-07-12T08:07:32.989Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kedl.github.io/"/>
     <link rel="self" href="https://kedl.github.io//atom.xml"/>
@@ -10,6 +10,37 @@
     <logo>https://kedl.github.io//images/avatar.png</logo>
     <icon>https://kedl.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Danny</rights>
+    <entry>
+        <title type="html"><![CDATA[敏捷测试四象限]]></title>
+        <id>https://kedl.github.io//post/min-jie-ce-shi-si-xiang-xian</id>
+        <link href="https://kedl.github.io//post/min-jie-ce-shi-si-xiang-xian">
+        </link>
+        <updated>2019-07-12T07:56:33.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://kedl.github.io//post-images/1562918338941.jpg" alt=""></p>
+<ul>
+<li>支持团队的面向技术测试
+<blockquote>
+<p>单元测试和组件测试通过帮助程序员准确理解代码需要做什么及提供正确设计的指导而保证质量。例如: TDD</p>
+</blockquote>
+</li>
+<li>支持团队的面向业务测试
+<blockquote>
+<p>定义和验证外部质量，同时帮助我们了解何时完成。例如：ATDD、BDD</p>
+</blockquote>
+</li>
+<li>评价产品的面向业务测试
+<blockquote>
+<p>测试人员或业务用户通过实际接触软件，从业务整体的角度去评判产品。例如：探索性测试</p>
+</blockquote>
+</li>
+<li>利用面向技术的测试评价产品
+<blockquote>
+<p>从技术角度来评价用户不一定能关注到的那些非功能性需求，帮助交付高质量的产品。例如：性能测试、安全测试</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Python查找列表重复的元素]]></title>
         <id>https://kedl.github.io//post/python-cha-zhao-lie-biao-chong-fu-de-yuan-su</id>
