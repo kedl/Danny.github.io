@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kedl.github.io/</id>
     <title>Danny</title>
-    <updated>2019-07-12T08:08:10.386Z</updated>
+    <updated>2019-07-22T07:30:05.075Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kedl.github.io/"/>
     <link rel="self" href="https://kedl.github.io//atom.xml"/>
@@ -10,6 +10,39 @@
     <logo>https://kedl.github.io//images/avatar.png</logo>
     <icon>https://kedl.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Danny</rights>
+    <entry>
+        <title type="html"><![CDATA[Mock、Fake、Stub的区别]]></title>
+        <id>https://kedl.github.io//post/mock-fake-stub</id>
+        <link href="https://kedl.github.io//post/mock-fake-stub">
+        </link>
+        <updated>2019-07-22T06:13:53.000Z</updated>
+        <content type="html"><![CDATA[<p>记一次面试过程中的问题。曾经在面试某公司(号称比谷歌还难面的咨询公司)QA岗位的时候，面试官问到：平时的测试活动中涉及到第三方组件、系统、模块的交互式如何去测试？因为以往的工作中也经常遇到这种情况，例如：支付、第三方平台等，脑子里想到的第一个答案就是：Mock掉它咯。然而这个答案并没有让面试官满意，随机问出了第二个问题：你是如何理解Fake、Stub和Mock的？完了，傻眼了，平时完全没去思考过、了解过这些词，好陌生，这里记录一下，算是亡羊补牢吧。</p>
+<blockquote>
+<p>以下内容来源于:
+<a href="https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da">Test Doubles — Fakes, Mocks and Stubs.</a></p>
+</blockquote>
+<ol>
+<li>Fake
+简单来说，Fake 是那些包含了生产环境下具体实现的简化版本的对象。例如：我们在测试活动中需要从数据库中获取特定的数据进行测试，但是此时负责DB模块的同事还未交付，我们就可以用Fake的方式来进行我们当前的测试活动。
+<img src="https://kedl.github.io//post-images/1563778269759.png" alt="Fake"></li>
+</ol>
+<p><img src="https://kedl.github.io//post-images/1563779129212.png" alt="Example"></p>
+<ol start="2">
+<li>Stub
+代指那些包含了预定义好的数据并且在测试时返回给调用者的对象。Stub 常被用于我们不希望返回真实数据或者造成其他副作用的场景。
+<img src="https://kedl.github.io//post-images/1563779209643.jpg" alt="Stub"></li>
+</ol>
+<p><img src="https://kedl.github.io//post-images/1563779842713.png" alt="Example"></p>
+<ol start="3">
+<li>
+<p>Mock
+代指那些仅记录它们的调用信息的对象，在测试断言中我们需要验证 Mocks 被进行了符合期望的调用。和Stub相比，区别在于Mock是会有行为的更改，而Stub只是状态的一个变化而已。</p>
+<p><img src="https://kedl.github.io//post-images/1563779969709.jpg" alt="Mock"></p>
+<p><img src="https://kedl.github.io//post-images/1563780543833.png" alt="Mock"></p>
+</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[敏捷测试四象限]]></title>
         <id>https://kedl.github.io//post/min-jie-ce-shi-si-xiang-xian</id>
