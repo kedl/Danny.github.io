@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Python查找列表重复的元素 | Danny</title>
+<title>Python 字典查找key的效率问题 | Danny</title>
 <meta name="description" content="爱测试爱Danny">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -92,33 +92,46 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Python查找列表重复的元素</h2>
-            <div class="post-date">2019-07-08</div>
+            <h2 class="post-title">Python 字典查找key的效率问题</h2>
+            <div class="post-date">2019-07-22</div>
             
             <div class="post-content">
-              <p>方法一:</p>
-<pre><code class="language-python">old_list = [1, 2, 3, 2, 1, 5, 6, 5, 5, 5]
-duplicated = set()
-for i in range(0, len(old_list)):
-    if old_list[i] in old_list[i + 1:]:
-        duplicated.add(old_list[i])
-print(duplicated)
+              <p>Python在字典中查找一个key有如下两个方式</p>
+<pre><code>def searchKeyA(key):
+    _dict = {'key1': 'value1', 'key2': 'value2'}
+    if key in _dict.keys():
+        return True
+    else:
+        return False
+
+
+def searchKeyB(key):
+    _dict = {'key1': 'value1', 'key2': 'value2'}
+    if _dict.get(key, default=None):
+        return True
+    else:
+        return False
 </code></pre>
-<p>方法二:<br>
-利用内置的collections.</p>
-<pre><code class="language-python">from collections import Counter
-a = [1, 2, 3, 2, 1, 5, 6, 5, 5, 5]
-print([item for item, count in Counter(a).items() if count &gt; 1])
-</code></pre>
+<p>上述两个方法都能够判断key是否在_dict中，但是因为两者的处理方式不一致所以决定着它们的效率也是不同的。<br>
+第一种方法_dict.keys()返回的是一个列表，Python中列表的存储结构采用的是线性表，因此其查询复杂度为O(n)。<br>
+第二种方法_dict.get(key)方法是通过哈希搜索的形式直接返回匹配结果（dict对象的存储结构采用的是散列表(hash表)），如果字典中有key对应的键，则返回对应的键值；否则，返回default值。因此，速度会快很多。</p>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://kedl.github.io//tag/ihzLla1MV" class="tag">
+                    Python
+                  </a>
+                
+              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://kedl.github.io//post/python-lie-biao-qu-chong">
+                <a href="https://kedl.github.io//post/mock-fake-stub">
                   <h3 class="post-title">
-                    Python列表去重
+                    Mock、Fake、Stub的区别
                   </h3>
                 </a>
               </div>
