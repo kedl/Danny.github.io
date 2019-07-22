@@ -7,10 +7,9 @@
 <meta name="description" content="爱测试爱Danny">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://kedl.github.io//favicon.ico?v=1563781347520">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="shortcut icon" href="https://kedl.github.io//favicon.ico?v=1563781836940">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://kedl.github.io//styles/main.css">
 
@@ -21,139 +20,52 @@
 
   
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
+
   </head>
   <body>
-  
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://kedl.github.io/">Danny</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://kedl.github.io/">
+        <img src="https://kedl.github.io//images/avatar.png?v=1563781836940" class="site-logo">
+        <h1 class="site-title">Danny</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
         
-          <li>
-            
-              <a href="/" class="menu">
-                首页
-              </a>
-            
-          </li>
+          <a href="/" class="site-nav">
+            首页
+          </a>
         
-          <li>
-            
-              <a href="/tags" class="menu">
-                标签
-              </a>
-            
-          </li>
+      
         
-          <li>
-            
-              <a href="/post/about" class="menu">
-                关于
-              </a>
-            
-          </li>
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
         
-      </ul>
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
     </div>
   </div>
-</nav>
-
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <article class="article">
-            <h1>Mock、Fake、Stub的区别</h1>
-            <p class="article-meta">
-              2019-07-22
-              
-                <a href="https://kedl.github.io//tag/_HepvsHsw" class="badge success">
-                  Test design
-                </a>
-              
-                <a href="https://kedl.github.io//tag/ihzLla1MV" class="badge ">
-                  Python
-                </a>
-              
-            </p>
-            
-              <img src="https://miro.medium.com/max/700/0*AtEcgjYzyuEmkWiv.png" alt="Mock、Fake、Stub的区别">
-            
-            <div class="post-content">
-              <p>记一次面试过程中的问题。曾经在面试某公司(号称比谷歌还难面的咨询公司)QA岗位的时候，面试官问到：平时的测试活动中涉及到第三方组件、系统、模块的交互是如何去验证测试的？因为以往的工作中也经常遇到这种情况，例如：支付、第三方平台等，脑子里想到的第一个答案就是：Mock掉它咯。然而这个答案并没有让面试官满意，随即问出了第二个问题：你是如何理解Fake、Stub和Mock的？完了，傻眼了，平时完全没去思考过、了解过这些词，好陌生，这里记录一下，算是亡羊补牢吧。</p>
-<ol>
-<li>Fake
-简单来说，Fake 是那些包含了生产环境下具体实现的简化版本的对象。例如：我们在测试活动中需要从数据库中获取特定的数据进行测试，但是此时负责DB模块的同事还未交付，我们就可以用Fake的方式来进行我们当前的测试活动。
-<img src="https://kedl.github.io//post-images/1563778269759.png" alt="Fake"></li>
-</ol>
-<p><img src="https://kedl.github.io//post-images/1563779129212.png" alt="Example"></p>
-<ol start="2">
-<li>Stub
-代指那些包含了预定义好的数据并且在测试时返回给调用者的对象。Stub 常被用于我们不希望返回真实数据或者造成其他副作用的场景。
-<img src="https://kedl.github.io//post-images/1563779209643.jpg" alt="Stub"></li>
-</ol>
-<p><img src="https://kedl.github.io//post-images/1563779842713.png" alt="Example"></p>
-<ol start="3">
-<li>
-<p>Mock
-代指那些仅记录它们的调用信息的对象，在测试断言中我们需要验证 Mocks 被进行了符合期望的调用。和Stub相比，区别在于Mock是会有行为的更改，而Stub只是状态的一个变化而已。</p>
-<p><img src="https://kedl.github.io//post-images/1563780543833.png" alt="Mock">
-以上方法，假如我的Calculation对象的_add方法还未开发完成，为了辅助测试就暂时将该方法mock掉。</p>
-</li>
-</ol>
-<blockquote>
-<p>参考文章:
-<a href="https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da">Test Doubles — Fakes, Mocks and Stubs.</a></p>
-</blockquote>
-
-            </div>
-          </article>
-        </div>
-        <div class="paper" data-aos="fade-in">
-          
-            <div class="next-post">
-              <div class="next">
-                下一篇
-              </div>
-              <a href="https://kedl.github.io//post/min-jie-ce-shi-si-xiang-xian">
-                <h3 class="post-title">
-                  敏捷测试四象限
-                </h3>
-              </a>
-            </div>
-          
-        </div>
-        
-          
-            <div class="paper" data-aos="fade-in">
-              <div id="gitalk-container"></div>
-            </div>
-          
-
-          
-        
-      </div>
-
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://kedl.github.io//images/avatar.png?v=1563781347520" class="no-responsive avatar">
-    <div class="text-muted">爱测试爱Danny</div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
     <div class="social-container">
       
         
@@ -167,101 +79,91 @@
         
       
     </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
+    <div class="site-description">
+      爱测试爱Danny
     </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/mock-fake-stub">Mock、Fake、Stub的区别</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/min-jie-ce-shi-si-xiang-xian">敏捷测试四象限</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/python-cha-zhao-lie-biao-chong-fu-de-yuan-su">Python查找列表重复的元素</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/python-lie-biao-qu-chong">Python列表去重</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/python-list-bing-ji-chai-ji-jiao-ji">Python List 并集、差集、交集</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/python-no-module-name">Python 解决import时找不到module问题</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/mysql-shi-wu-ge-chi">事务隔离</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/mysql-57-only-full-group-by-jie-jue-fang-an">MySQL 5.7 only full group by解决方案</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/what-the-difference-between-selenium1-and-selenium2">Selenium1和Selenium2的区别</a>
-            </li>
-          
-        
-      </ul>
+    <div class="site-footer">
+      By Danny | <a class="rss" href="https://kedl.github.io//atom.xml" target="_blank">RSS</a>
     </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://kedl.github.io//tag/_HepvsHsw" class="badge success">
-          Test design
-        </a>
-      
-        <a href="https://kedl.github.io//tag/ihzLla1MV" class="badge success">
-          Python
-        </a>
-      
-        <a href="https://kedl.github.io//tag/jlTs6evIR" class="badge secondary">
-          MySQL
-        </a>
-      
-        <a href="https://kedl.github.io//tag/bER-u8Nl2" class="badge warning">
-          Selenium
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-    By Danny | <a class="rss" href="https://kedl.github.io//atom.xml" target="_blank">RSS</a>
   </div>
 </div>
 
 
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Mock、Fake、Stub的区别</h2>
+            <div class="post-date">2019-07-22</div>
+            
+              <div class="feature-container" style="background-image: url('https://miro.medium.com/max/700/0*AtEcgjYzyuEmkWiv.png')">
+              </div>
+            
+            <div class="post-content">
+              <p>记一次面试过程中的问题。曾经在面试某公司(号称比谷歌还难面的咨询公司)QA岗位的时候，面试官问到：平时的测试活动中涉及到第三方组件、系统、模块的交互是如何去验证测试的？因为以往的工作中也经常遇到这种情况，例如：支付、第三方平台等，脑子里想到的第一个答案就是：Mock掉它咯。然而这个答案并没有让面试官满意，随即问出了第二个问题：你是如何理解Fake、Stub和Mock的？完了，傻眼了，平时完全没去思考过、了解过这些词，好陌生，这里记录一下，算是亡羊补牢吧。</p>
+<ol>
+<li>
+<p>Fake<br>
+简单来说，Fake 是那些包含了生产环境下具体实现的简化版本的对象。例如：我们在测试活动中需要从数据库中获取特定的数据进行测试，但是此时负责DB模块的同事还未交付，我们就可以用Fake的方式来进行我们当前的测试活动。<br>
+<img src="https://kedl.github.io//post-images/1563778269759.png" alt="Fake"></p>
+<p><img src="https://kedl.github.io//post-images/1563779129212.png" alt="Example"></p>
+</li>
+<li>
+<p>Stub<br>
+代指那些包含了预定义好的数据并且在测试时返回给调用者的对象。Stub 常被用于我们不希望返回真实数据或者造成其他副作用的场景。<br>
+<img src="https://kedl.github.io//post-images/1563779209643.jpg" alt="Stub"></p>
+</li>
+</ol>
+<p><img src="https://kedl.github.io//post-images/1563779842713.png" alt="Example"></p>
+<ol start="3">
+<li>
+<p>Mock<br>
+代指那些仅记录它们的调用信息的对象，在测试断言中我们需要验证 Mocks 被进行了符合期望的调用。和Stub相比，区别在于Mock是会有行为的更改，而Stub只是状态的一个变化而已。</p>
+<p><img src="https://kedl.github.io//post-images/1563780543833.png" alt="Mock"><br>
+以上方法，假如我的Calculation对象的_add方法还未开发完成，为了辅助测试就暂时将该方法mock掉。</p>
+</li>
+</ol>
+<blockquote>
+<p>参考文章:<br>
+<a href="https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da">Test Doubles — Fakes, Mocks and Stubs.</a></p>
+</blockquote>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://kedl.github.io//tag/_HepvsHsw" class="tag">
+                    Test design
+                  </a>
+                
+                  <a href="https://kedl.github.io//tag/ihzLla1MV" class="tag">
+                    Python
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://kedl.github.io//post/min-jie-ce-shi-si-xiang-xian">
+                  <h3 class="post-title">
+                    敏捷测试四象限
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -271,6 +173,13 @@
 AOS.init();
 
 hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 

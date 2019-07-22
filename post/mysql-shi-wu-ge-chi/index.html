@@ -7,10 +7,9 @@
 <meta name="description" content="爱测试爱Danny">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://kedl.github.io//favicon.ico?v=1563781347520">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="shortcut icon" href="https://kedl.github.io//favicon.ico?v=1563781836940">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://kedl.github.io//styles/main.css">
 
@@ -21,73 +20,80 @@
 
   
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
+
   </head>
   <body>
-  
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://kedl.github.io/">Danny</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://kedl.github.io/">
+        <img src="https://kedl.github.io//images/avatar.png?v=1563781836940" class="site-logo">
+        <h1 class="site-title">Danny</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
         
-          <li>
-            
-              <a href="/" class="menu">
-                首页
-              </a>
-            
-          </li>
+          <a href="/" class="site-nav">
+            首页
+          </a>
         
-          <li>
-            
-              <a href="/tags" class="menu">
-                标签
-              </a>
-            
-          </li>
+      
         
-          <li>
-            
-              <a href="/post/about" class="menu">
-                关于
-              </a>
-            
-          </li>
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
         
-      </ul>
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
     </div>
   </div>
-</nav>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      爱测试爱Danny
+    </div>
+    <div class="site-footer">
+      By Danny | <a class="rss" href="https://kedl.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <article class="article">
-            <h1>事务隔离</h1>
-            <p class="article-meta">
-              2019-07-05
-              
-                <a href="https://kedl.github.io//tag/jlTs6evIR" class="badge ">
-                  MySQL
-                </a>
-              
-            </p>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">事务隔离</h2>
+            <div class="post-date">2019-07-05</div>
             
             <div class="post-content">
               <p>事务隔离（英语：Transaction Isolation）定义了数据库系统中一个操作的结果在何时以何种方式对其他并发操作可见。隔离是事务ACID（原子性、一致性性、隔离性、持久性）四大属性之一。</p>
@@ -95,14 +101,14 @@
 <li>并发控制：</li>
 </ul>
 <blockquote>
-<p>并发控制描述了数据库事务隔离以保证数据正确性的机制。为了保证并行事务执行的准确执行，数据库和存储引擎在设计的时候着重强调了并发控制这一点。典型的事务相关机制限制数据的访问顺序（执行调度）以满足可序列化 和可恢复性。限制数据访问意味着降低了执行的性能，并发控制机制就是要保证在满足这些限制的前提下提供尽可能高的性能。经常在不损害正确性的情况下，为了达到更好的性能，可序列化的要求会减低一些，但是为了避免数据一致性的破坏，可恢复性必须保证。
+<p>并发控制描述了数据库事务隔离以保证数据正确性的机制。为了保证并行事务执行的准确执行，数据库和存储引擎在设计的时候着重强调了并发控制这一点。典型的事务相关机制限制数据的访问顺序（执行调度）以满足可序列化 和可恢复性。限制数据访问意味着降低了执行的性能，并发控制机制就是要保证在满足这些限制的前提下提供尽可能高的性能。经常在不损害正确性的情况下，为了达到更好的性能，可序列化的要求会减低一些，但是为了避免数据一致性的破坏，可恢复性必须保证。<br>
 两阶段锁是关系数据库中最常见的提供了可序列化和可恢复性的并发控制机制，为了访问一个数据库对象，事务首先要获得这个对象的锁。对于不同的访问类型（如对对象的读写操作）和锁的类型，如果另外一个事务正持有这个对象的锁，获得锁的过程会被阻塞或者延迟。</p>
 </blockquote>
 <ul>
 <li>隔离级别：</li>
 </ul>
 <blockquote>
-<p>在数据库事务的ACID四个属性中，隔离性是一个最常放松的一个。为了获取更高的隔离等级，数据库系统的锁机制或者多版本并发控制机制都会影响并发。 应用软件也需要额外的逻辑来使其正常工作。
+<p>在数据库事务的ACID四个属性中，隔离性是一个最常放松的一个。为了获取更高的隔离等级，数据库系统的锁机制或者多版本并发控制机制都会影响并发。 应用软件也需要额外的逻辑来使其正常工作。<br>
 很多数据库管理系统定义了不同的“事务隔离等级”来控制锁的程度。在很多数据库系统中，多数的数据库事务都避免高等级的隔离等级（如可串行化）从而减少对系统的锁定开销。程序员需要小心的分析数据库访问部分的代码来保证隔离级别的降低不会造成难以发现的代码bug。相反的，更高的隔离级别会增加死锁发生的几率，同样需要编程过程中去避免。ANSI/ISO SQL定义的标准隔离级别如下：</p>
 </blockquote>
 <p>1.可串行化</p>
@@ -205,11 +211,11 @@
 </tr>
 </tbody>
 </table>
-<p>在这个例子中，事务2提交成功，因此他对id为1的行的修改就对其他事务可见了。但是事务1在此前已经从这行读到了另外一个“age”的值。在可序列化（SERIALIZABLE）和可重复读的隔离级别，数据库在第二次SELECT请求的时候应该返回事务2更新之前的值。在提交读和未提交读，返回的是更新之后的值，这个现象就是不可重复读。
-有两种策略可以避免不可重复读。一个是要求事务2延迟到事务1提交或者回滚之后再执行。这种方式实现了T1, T2 的串行化调度。串行化调度可以支持可重复读。
-另一种策略是多版本并发控制。为了得到更好的并发性能，允许事务2先提交。但因为事务1在事务2之前开始，事务1必须在其开始执行时间点的数据库的快照上面操作。当事务1最终提交时候，数据库会检查其结果是否等价于T1, T2串行调度。如果等价，则允许事务1提交，如果不等价，事务1需要回滚并抛出个串行化失败的错误。
-使用基于锁的并发控制，在可重复读的隔离级别中，ID=1的行会被锁住，在事务1提交或回滚前一直阻塞语句2的执行。在提交读的级别，语句1第二次执行，age已经被修改了。
-在多版本并发控制机制下，可序列化(SERIALIZABLE)级别，两次SELECT语句读到的数据都是事务1开始的快照，因此返回同样的数据。但是，如果事务1试图UPDATE这行数据，事务1会被要求回滚并抛出一个串行化失败的错误。
+<p>在这个例子中，事务2提交成功，因此他对id为1的行的修改就对其他事务可见了。但是事务1在此前已经从这行读到了另外一个“age”的值。在可序列化（SERIALIZABLE）和可重复读的隔离级别，数据库在第二次SELECT请求的时候应该返回事务2更新之前的值。在提交读和未提交读，返回的是更新之后的值，这个现象就是不可重复读。<br>
+有两种策略可以避免不可重复读。一个是要求事务2延迟到事务1提交或者回滚之后再执行。这种方式实现了T1, T2 的串行化调度。串行化调度可以支持可重复读。<br>
+另一种策略是多版本并发控制。为了得到更好的并发性能，允许事务2先提交。但因为事务1在事务2之前开始，事务1必须在其开始执行时间点的数据库的快照上面操作。当事务1最终提交时候，数据库会检查其结果是否等价于T1, T2串行调度。如果等价，则允许事务1提交，如果不等价，事务1需要回滚并抛出个串行化失败的错误。<br>
+使用基于锁的并发控制，在可重复读的隔离级别中，ID=1的行会被锁住，在事务1提交或回滚前一直阻塞语句2的执行。在提交读的级别，语句1第二次执行，age已经被修改了。<br>
+在多版本并发控制机制下，可序列化(SERIALIZABLE)级别，两次SELECT语句读到的数据都是事务1开始的快照，因此返回同样的数据。但是，如果事务1试图UPDATE这行数据，事务1会被要求回滚并抛出一个串行化失败的错误。<br>
 在提交读隔离级别，每个语句读到的是语句执行前的快照，因此读到更新前后不同的值。在这种级别不会有串行化的错误（因为这种级别不要求串行化），事务1也不要求重试。</p>
 <p>幻读：</p>
 <blockquote>
@@ -283,7 +289,7 @@
 </tr>
 </tbody>
 </table>
-<p>可序列化（Serializable）隔离级别不等同于可串行化（Serializable）。可串行化调度是避免以上三种现象的必要条件，但不是充分条件。
+<p>可序列化（Serializable）隔离级别不等同于可串行化（Serializable）。可串行化调度是避免以上三种现象的必要条件，但不是充分条件。<br>
 “可能发生”表示这个隔离级别会发生对应的现象，“-”表示不会发生。</p>
 <ol start="2">
 <li>隔离级别vs 锁持续时间</li>
@@ -329,145 +335,38 @@
 </table>
 
             </div>
-          </article>
-        </div>
-        <div class="paper" data-aos="fade-in">
-          
-            <div class="next-post">
-              <div class="next">
-                下一篇
+            
+              <div class="tag-container">
+                
+                  <a href="https://kedl.github.io//tag/jlTs6evIR" class="tag">
+                    MySQL
+                  </a>
+                
               </div>
-              <a href="https://kedl.github.io//post/mysql-57-only-full-group-by-jie-jue-fang-an">
-                <h3 class="post-title">
-                  MySQL 5.7 only full group by解决方案
-                </h3>
-              </a>
-            </div>
-          
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://kedl.github.io//post/mysql-57-only-full-group-by-jie-jue-fang-an">
+                  <h3 class="post-title">
+                    MySQL 5.7 only full group by解决方案
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
         </div>
-        
-          
-            <div class="paper" data-aos="fade-in">
-              <div id="gitalk-container"></div>
-            </div>
-          
-
-          
-        
       </div>
-
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://kedl.github.io//images/avatar.png?v=1563781347520" class="no-responsive avatar">
-    <div class="text-muted">爱测试爱Danny</div>
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/mock-fake-stub">Mock、Fake、Stub的区别</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/min-jie-ce-shi-si-xiang-xian">敏捷测试四象限</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/python-cha-zhao-lie-biao-chong-fu-de-yuan-su">Python查找列表重复的元素</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/python-lie-biao-qu-chong">Python列表去重</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/python-list-bing-ji-chai-ji-jiao-ji">Python List 并集、差集、交集</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/python-no-module-name">Python 解决import时找不到module问题</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/mysql-shi-wu-ge-chi">事务隔离</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/mysql-57-only-full-group-by-jie-jue-fang-an">MySQL 5.7 only full group by解决方案</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://kedl.github.io//post/what-the-difference-between-selenium1-and-selenium2">Selenium1和Selenium2的区别</a>
-            </li>
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://kedl.github.io//tag/_HepvsHsw" class="badge secondary">
-          Test design
-        </a>
-      
-        <a href="https://kedl.github.io//tag/ihzLla1MV" class="badge ">
-          Python
-        </a>
-      
-        <a href="https://kedl.github.io//tag/jlTs6evIR" class="badge ">
-          MySQL
-        </a>
-      
-        <a href="https://kedl.github.io//tag/bER-u8Nl2" class="badge secondary">
-          Selenium
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-    By Danny | <a class="rss" href="https://kedl.github.io//atom.xml" target="_blank">RSS</a>
-  </div>
-</div>
-
-
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -477,6 +376,13 @@
 AOS.init();
 
 hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 

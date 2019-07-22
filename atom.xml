@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kedl.github.io/</id>
     <title>Danny</title>
-    <updated>2019-07-22T07:42:29.400Z</updated>
+    <updated>2019-07-22T07:50:40.790Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kedl.github.io/"/>
     <link rel="self" href="https://kedl.github.io//atom.xml"/>
@@ -18,27 +18,29 @@
         <updated>2019-07-22T06:13:53.000Z</updated>
         <content type="html"><![CDATA[<p>记一次面试过程中的问题。曾经在面试某公司(号称比谷歌还难面的咨询公司)QA岗位的时候，面试官问到：平时的测试活动中涉及到第三方组件、系统、模块的交互是如何去验证测试的？因为以往的工作中也经常遇到这种情况，例如：支付、第三方平台等，脑子里想到的第一个答案就是：Mock掉它咯。然而这个答案并没有让面试官满意，随即问出了第二个问题：你是如何理解Fake、Stub和Mock的？完了，傻眼了，平时完全没去思考过、了解过这些词，好陌生，这里记录一下，算是亡羊补牢吧。</p>
 <ol>
-<li>Fake
-简单来说，Fake 是那些包含了生产环境下具体实现的简化版本的对象。例如：我们在测试活动中需要从数据库中获取特定的数据进行测试，但是此时负责DB模块的同事还未交付，我们就可以用Fake的方式来进行我们当前的测试活动。
-<img src="https://kedl.github.io//post-images/1563778269759.png" alt="Fake"></li>
-</ol>
+<li>
+<p>Fake<br>
+简单来说，Fake 是那些包含了生产环境下具体实现的简化版本的对象。例如：我们在测试活动中需要从数据库中获取特定的数据进行测试，但是此时负责DB模块的同事还未交付，我们就可以用Fake的方式来进行我们当前的测试活动。<br>
+<img src="https://kedl.github.io//post-images/1563778269759.png" alt="Fake"></p>
 <p><img src="https://kedl.github.io//post-images/1563779129212.png" alt="Example"></p>
-<ol start="2">
-<li>Stub
-代指那些包含了预定义好的数据并且在测试时返回给调用者的对象。Stub 常被用于我们不希望返回真实数据或者造成其他副作用的场景。
-<img src="https://kedl.github.io//post-images/1563779209643.jpg" alt="Stub"></li>
+</li>
+<li>
+<p>Stub<br>
+代指那些包含了预定义好的数据并且在测试时返回给调用者的对象。Stub 常被用于我们不希望返回真实数据或者造成其他副作用的场景。<br>
+<img src="https://kedl.github.io//post-images/1563779209643.jpg" alt="Stub"></p>
+</li>
 </ol>
 <p><img src="https://kedl.github.io//post-images/1563779842713.png" alt="Example"></p>
 <ol start="3">
 <li>
-<p>Mock
+<p>Mock<br>
 代指那些仅记录它们的调用信息的对象，在测试断言中我们需要验证 Mocks 被进行了符合期望的调用。和Stub相比，区别在于Mock是会有行为的更改，而Stub只是状态的一个变化而已。</p>
-<p><img src="https://kedl.github.io//post-images/1563780543833.png" alt="Mock">
+<p><img src="https://kedl.github.io//post-images/1563780543833.png" alt="Mock"><br>
 以上方法，假如我的Calculation对象的_add方法还未开发完成，为了辅助测试就暂时将该方法mock掉。</p>
 </li>
 </ol>
 <blockquote>
-<p>参考文章:
+<p>参考文章:<br>
 <a href="https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da">Test Doubles — Fakes, Mocks and Stubs.</a></p>
 </blockquote>
 ]]></content>
@@ -88,7 +90,7 @@ for i in range(0, len(old_list)):
         duplicated.add(old_list[i])
 print(duplicated)
 </code></pre>
-<p>方法二:
+<p>方法二:<br>
 利用内置的collections.</p>
 <pre><code class="language-python">from collections import Counter
 a = [1, 2, 3, 2, 1, 5, 6, 5, 5, 5]
@@ -206,14 +208,14 @@ print(sys.path)
 <li>并发控制：</li>
 </ul>
 <blockquote>
-<p>并发控制描述了数据库事务隔离以保证数据正确性的机制。为了保证并行事务执行的准确执行，数据库和存储引擎在设计的时候着重强调了并发控制这一点。典型的事务相关机制限制数据的访问顺序（执行调度）以满足可序列化 和可恢复性。限制数据访问意味着降低了执行的性能，并发控制机制就是要保证在满足这些限制的前提下提供尽可能高的性能。经常在不损害正确性的情况下，为了达到更好的性能，可序列化的要求会减低一些，但是为了避免数据一致性的破坏，可恢复性必须保证。
+<p>并发控制描述了数据库事务隔离以保证数据正确性的机制。为了保证并行事务执行的准确执行，数据库和存储引擎在设计的时候着重强调了并发控制这一点。典型的事务相关机制限制数据的访问顺序（执行调度）以满足可序列化 和可恢复性。限制数据访问意味着降低了执行的性能，并发控制机制就是要保证在满足这些限制的前提下提供尽可能高的性能。经常在不损害正确性的情况下，为了达到更好的性能，可序列化的要求会减低一些，但是为了避免数据一致性的破坏，可恢复性必须保证。<br>
 两阶段锁是关系数据库中最常见的提供了可序列化和可恢复性的并发控制机制，为了访问一个数据库对象，事务首先要获得这个对象的锁。对于不同的访问类型（如对对象的读写操作）和锁的类型，如果另外一个事务正持有这个对象的锁，获得锁的过程会被阻塞或者延迟。</p>
 </blockquote>
 <ul>
 <li>隔离级别：</li>
 </ul>
 <blockquote>
-<p>在数据库事务的ACID四个属性中，隔离性是一个最常放松的一个。为了获取更高的隔离等级，数据库系统的锁机制或者多版本并发控制机制都会影响并发。 应用软件也需要额外的逻辑来使其正常工作。
+<p>在数据库事务的ACID四个属性中，隔离性是一个最常放松的一个。为了获取更高的隔离等级，数据库系统的锁机制或者多版本并发控制机制都会影响并发。 应用软件也需要额外的逻辑来使其正常工作。<br>
 很多数据库管理系统定义了不同的“事务隔离等级”来控制锁的程度。在很多数据库系统中，多数的数据库事务都避免高等级的隔离等级（如可串行化）从而减少对系统的锁定开销。程序员需要小心的分析数据库访问部分的代码来保证隔离级别的降低不会造成难以发现的代码bug。相反的，更高的隔离级别会增加死锁发生的几率，同样需要编程过程中去避免。ANSI/ISO SQL定义的标准隔离级别如下：</p>
 </blockquote>
 <p>1.可串行化</p>
@@ -316,11 +318,11 @@ print(sys.path)
 </tr>
 </tbody>
 </table>
-<p>在这个例子中，事务2提交成功，因此他对id为1的行的修改就对其他事务可见了。但是事务1在此前已经从这行读到了另外一个“age”的值。在可序列化（SERIALIZABLE）和可重复读的隔离级别，数据库在第二次SELECT请求的时候应该返回事务2更新之前的值。在提交读和未提交读，返回的是更新之后的值，这个现象就是不可重复读。
-有两种策略可以避免不可重复读。一个是要求事务2延迟到事务1提交或者回滚之后再执行。这种方式实现了T1, T2 的串行化调度。串行化调度可以支持可重复读。
-另一种策略是多版本并发控制。为了得到更好的并发性能，允许事务2先提交。但因为事务1在事务2之前开始，事务1必须在其开始执行时间点的数据库的快照上面操作。当事务1最终提交时候，数据库会检查其结果是否等价于T1, T2串行调度。如果等价，则允许事务1提交，如果不等价，事务1需要回滚并抛出个串行化失败的错误。
-使用基于锁的并发控制，在可重复读的隔离级别中，ID=1的行会被锁住，在事务1提交或回滚前一直阻塞语句2的执行。在提交读的级别，语句1第二次执行，age已经被修改了。
-在多版本并发控制机制下，可序列化(SERIALIZABLE)级别，两次SELECT语句读到的数据都是事务1开始的快照，因此返回同样的数据。但是，如果事务1试图UPDATE这行数据，事务1会被要求回滚并抛出一个串行化失败的错误。
+<p>在这个例子中，事务2提交成功，因此他对id为1的行的修改就对其他事务可见了。但是事务1在此前已经从这行读到了另外一个“age”的值。在可序列化（SERIALIZABLE）和可重复读的隔离级别，数据库在第二次SELECT请求的时候应该返回事务2更新之前的值。在提交读和未提交读，返回的是更新之后的值，这个现象就是不可重复读。<br>
+有两种策略可以避免不可重复读。一个是要求事务2延迟到事务1提交或者回滚之后再执行。这种方式实现了T1, T2 的串行化调度。串行化调度可以支持可重复读。<br>
+另一种策略是多版本并发控制。为了得到更好的并发性能，允许事务2先提交。但因为事务1在事务2之前开始，事务1必须在其开始执行时间点的数据库的快照上面操作。当事务1最终提交时候，数据库会检查其结果是否等价于T1, T2串行调度。如果等价，则允许事务1提交，如果不等价，事务1需要回滚并抛出个串行化失败的错误。<br>
+使用基于锁的并发控制，在可重复读的隔离级别中，ID=1的行会被锁住，在事务1提交或回滚前一直阻塞语句2的执行。在提交读的级别，语句1第二次执行，age已经被修改了。<br>
+在多版本并发控制机制下，可序列化(SERIALIZABLE)级别，两次SELECT语句读到的数据都是事务1开始的快照，因此返回同样的数据。但是，如果事务1试图UPDATE这行数据，事务1会被要求回滚并抛出一个串行化失败的错误。<br>
 在提交读隔离级别，每个语句读到的是语句执行前的快照，因此读到更新前后不同的值。在这种级别不会有串行化的错误（因为这种级别不要求串行化），事务1也不要求重试。</p>
 <p>幻读：</p>
 <blockquote>
@@ -394,7 +396,7 @@ print(sys.path)
 </tr>
 </tbody>
 </table>
-<p>可序列化（Serializable）隔离级别不等同于可串行化（Serializable）。可串行化调度是避免以上三种现象的必要条件，但不是充分条件。
+<p>可序列化（Serializable）隔离级别不等同于可串行化（Serializable）。可串行化调度是避免以上三种现象的必要条件，但不是充分条件。<br>
 “可能发生”表示这个隔离级别会发生对应的现象，“-”表示不会发生。</p>
 <ol start="2">
 <li>隔离级别vs 锁持续时间</li>
@@ -446,7 +448,7 @@ print(sys.path)
         <link href="https://kedl.github.io//post/mysql-57-only-full-group-by-jie-jue-fang-an">
         </link>
         <updated>2019-07-05T02:52:23.000Z</updated>
-        <content type="html"><![CDATA[<p>因为MySQL 5.7版本的变化，在执行group by 时，如果后面的列名没有出现在select中则会出现该错误。
+        <content type="html"><![CDATA[<p>因为MySQL 5.7版本的变化，在执行group by 时，如果后面的列名没有出现在select中则会出现该错误。<br>
 解决办法：</p>
 <ul>
 <li>先查看sql_mode:</li>
@@ -473,15 +475,15 @@ print(sys.path)
         <updated>2019-06-24T04:19:44.000Z</updated>
         <content type="html"><![CDATA[<p>Selenium 1.0包括：selenium IDE、selenium Grid、selenium RC三部分</p>
 <blockquote>
-<p>selenium IDE：firefox的一个插件，可以录制和回放脚本。
-selenium Grid：用于实现分布式测试。利用Grid，可以很方便地同时在多台机器上和异构环境中并行运行多个测试事例。
-selenium RC：selenium 的核心部分，可以实现利用selenium的代理服务器来实现访问浏览器实现自动化测试。其中：RC分为Client和Server两部分，Client实现自动化脚本，Server控制浏览器行为。Server又分为三部分：Launcher（启动浏览器）、HTTP Proxy（代理）、Core（嵌入到浏览器的JS代码）。由Launcher启动浏览器，将Core嵌入到浏览器，并把浏览器代理设置为Selenium server的HTTP Proxy。<img src="https://kedl.github.io//post-images/1562294606787.png" alt="">
+<p>selenium IDE：firefox的一个插件，可以录制和回放脚本。<br>
+selenium Grid：用于实现分布式测试。利用Grid，可以很方便地同时在多台机器上和异构环境中并行运行多个测试事例。<br>
+selenium RC：selenium 的核心部分，可以实现利用selenium的代理服务器来实现访问浏览器实现自动化测试。其中：RC分为Client和Server两部分，Client实现自动化脚本，Server控制浏览器行为。Server又分为三部分：Launcher（启动浏览器）、HTTP Proxy（代理）、Core（嵌入到浏览器的JS代码）。由Launcher启动浏览器，将Core嵌入到浏览器，并把浏览器代理设置为Selenium server的HTTP Proxy。<img src="https://kedl.github.io//post-images/1562294606787.png" alt=""><br>
 Selenium 1.0使用的是Javascript注入技术与浏览器打交道，需要SeleniumRC启动一个Server，将操作Web元素的API调用转化为一段段Javascript，在Selenium内核启动浏览器之后注入这段Javascript。开发过Web应用的人都知道，Javascript可以获取并调用页面的任何元素，自如的进行操作。由此才实现了Selenium的目的：自动化Web操作。这种Javascript注入技术的缺点是速度不理想，而且稳定性大大依赖于Selenium内核对API翻译成的Javascript质量高低。</p>
 </blockquote>
 <p>Selenium 2.0 则是把selenium 1.0中selenium RC替换为了WebDriver</p>
 <blockquote>
-<p>selenium RC 在浏览器中运行JavaScript应用，使用浏览器内置的JavaScript 翻译器来翻译和执行selenese命令（selenese 是selenium命令集合）。
-WebDriver利用浏览器原生的API，封装成一套更加面向对象的SeleniumWebDriverAPI，直接操作浏览器页面里的元素，甚至操作浏览器本身（截屏，窗口大小，启动，关闭，安装插件，配置证书之类的）。
+<p>selenium RC 在浏览器中运行JavaScript应用，使用浏览器内置的JavaScript 翻译器来翻译和执行selenese命令（selenese 是selenium命令集合）。<br>
+WebDriver利用浏览器原生的API，封装成一套更加面向对象的SeleniumWebDriverAPI，直接操作浏览器页面里的元素，甚至操作浏览器本身（截屏，窗口大小，启动，关闭，安装插件，配置证书之类的）。<br>
 由于使用的是浏览器原生的API，速度大大提高，而且调用的稳定性交给了浏览器厂商本身，显然是更加科学。然而带来的一些副作用就是，不同的浏览器厂商，对Web元素的操作和呈现多少会有一些差异，这就直接导致了SeleniumWebDriver要分浏览器厂商不同，而提供不同的实现。例如Firefox就有专门的FirefoxDriver，Chrome就有专门的ChromeDriver等等。</p>
 </blockquote>
 ]]></content>
