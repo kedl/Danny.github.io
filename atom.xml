@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kedl.github.io/</id>
     <title>Danny</title>
-    <updated>2019-07-22T07:40:30.056Z</updated>
+    <updated>2019-07-22T07:42:29.400Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kedl.github.io/"/>
     <link rel="self" href="https://kedl.github.io//atom.xml"/>
@@ -16,7 +16,7 @@
         <link href="https://kedl.github.io//post/mock-fake-stub">
         </link>
         <updated>2019-07-22T06:13:53.000Z</updated>
-        <content type="html"><![CDATA[<p>记一次面试过程中的问题。曾经在面试某公司(号称比谷歌还难面的咨询公司)QA岗位的时候，面试官问到：平时的测试活动中涉及到第三方组件、系统、模块的交互是如何去测试？因为以往的工作中也经常遇到这种情况，例如：支付、第三方平台等，脑子里想到的第一个答案就是：Mock掉它咯。然而这个答案并没有让面试官满意，随机问出了第二个问题：你是如何理解Fake、Stub和Mock的？完了，傻眼了，平时完全没去思考过、了解过这些词，好陌生，这里记录一下，算是亡羊补牢吧。</p>
+        <content type="html"><![CDATA[<p>记一次面试过程中的问题。曾经在面试某公司(号称比谷歌还难面的咨询公司)QA岗位的时候，面试官问到：平时的测试活动中涉及到第三方组件、系统、模块的交互是如何去验证测试的？因为以往的工作中也经常遇到这种情况，例如：支付、第三方平台等，脑子里想到的第一个答案就是：Mock掉它咯。然而这个答案并没有让面试官满意，随即问出了第二个问题：你是如何理解Fake、Stub和Mock的？完了，傻眼了，平时完全没去思考过、了解过这些词，好陌生，这里记录一下，算是亡羊补牢吧。</p>
 <ol>
 <li>Fake
 简单来说，Fake 是那些包含了生产环境下具体实现的简化版本的对象。例如：我们在测试活动中需要从数据库中获取特定的数据进行测试，但是此时负责DB模块的同事还未交付，我们就可以用Fake的方式来进行我们当前的测试活动。
