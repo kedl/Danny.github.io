@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://kedl.github.io//favicon.ico?v=1563781836940">
+<link rel="shortcut icon" href="https://kedl.github.io//favicon.ico?v=1563782570426">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://kedl.github.io//styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://kedl.github.io/">
-        <img src="https://kedl.github.io//images/avatar.png?v=1563781836940" class="site-logo">
+        <img src="https://kedl.github.io//images/avatar.png?v=1563782570426" class="site-logo">
         <h1 class="site-title">Danny</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -105,7 +105,15 @@
 <p>Fake<br>
 简单来说，Fake 是那些包含了生产环境下具体实现的简化版本的对象。例如：我们在测试活动中需要从数据库中获取特定的数据进行测试，但是此时负责DB模块的同事还未交付，我们就可以用Fake的方式来进行我们当前的测试活动。<br>
 <img src="https://kedl.github.io//post-images/1563778269759.png" alt="Fake"></p>
-<p><img src="https://kedl.github.io//post-images/1563779129212.png" alt="Example"></p>
+<pre><code class="language-python">class Book(object):
+  def __init__(self):
+      self.books = {}
+      self.books.update({'Math': {'author': 'Tom'}})
+      self.books.update({'English': {'author': 'Hero'}})
+
+  def getBookAuthor(self, bookName):
+      return self.books.get(bookName).get('author')
+</code></pre>
 </li>
 <li>
 <p>Stub<br>
@@ -113,15 +121,44 @@
 <img src="https://kedl.github.io//post-images/1563779209643.jpg" alt="Stub"></p>
 </li>
 </ol>
-<p><img src="https://kedl.github.io//post-images/1563779842713.png" alt="Example"></p>
+<pre><code class="language-python">class Order(object):
+    def __init__(self):
+        pass
+
+    def getOrderStatus(self, orderNo):
+        if orderNo % 2 == 1:
+            return 'cancelled'
+        else:
+            return 'completed'
+</code></pre>
 <ol start="3">
-<li>
-<p>Mock<br>
-代指那些仅记录它们的调用信息的对象，在测试断言中我们需要验证 Mocks 被进行了符合期望的调用。和Stub相比，区别在于Mock是会有行为的更改，而Stub只是状态的一个变化而已。</p>
-<p><img src="https://kedl.github.io//post-images/1563780543833.png" alt="Mock"><br>
-以上方法，假如我的Calculation对象的_add方法还未开发完成，为了辅助测试就暂时将该方法mock掉。</p>
-</li>
+<li>Mock<br>
+代指那些仅记录它们的调用信息的对象，在测试断言中我们需要验证 Mocks 被进行了符合期望的调用。和Stub相比，区别在于Mock是会有行为的更改，而Stub只是状态的一个变化而已。</li>
 </ol>
+<pre><code class="language-python">import unittest
+from unittest import mock, TestCase
+
+
+class Calculation(object):
+    def __init__(self):
+        pass
+
+    def _add(self, first, second):
+        return first + second
+
+
+class TestCalculation(TestCase):
+    def test_add(self):
+        calculation = Calculation()
+        calculation._add = mock.Mock(return_value=10)
+        self.assertEqual(calculation._add(), 10)
+
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+<pre><code>以上方法，假如我的Calculation对象的_add方法还未开发完成，为了辅助测试就暂时将该方法mock掉。
+</code></pre>
 <blockquote>
 <p>参考文章:<br>
 <a href="https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da">Test Doubles — Fakes, Mocks and Stubs.</a></p>
